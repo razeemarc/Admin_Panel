@@ -1,29 +1,64 @@
+/* styles.css */
+:root {
+	--mainColor: #ffffff;
+	--mainColorLight: #548cfc;
+	--secondaryColor: #407bff;
+    --textColor:#000000;
+	--lightBlack: #413d3d;
+}
 .sidebar {
-    position: fixed;
+    width: 250px; /* Adjust as needed */
+    height: 100%; /* This ensures it takes full height of the viewport */
+    background-color: var(--mainColor); /* Example background color */
+    color:var(--textColor); /* Example text color */
+    position: fixed; /* Fixed positioning so it stays in place while scrolling */
     top: 0;
-    bottom: 0;
     left: 0;
-    min-height: 100vh !important;
-    z-index: 100;
-    padding: 48px 0 0;
-    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+   display: flex;
+   justify-content: center;
+   padding-top: 4rem;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .sidebar li:hover {
+    color: var(--mainColorLight); /* Example hover color */
+    background-color: #cad9f9 ;
+  }
+  .pagestyle {
+    background-color: #f7f7f7; /* Change to your preferred shade of grey */
+  }
+  .character-bg{
+   
     
-}
-#sidebar-wrapper{
-    min-height: 100vh !important;
-    width: 100vw;
-    margin-left: -1rem;
-    -webkit-transition: margin .25s ease-out;
-    -moz-transition: margin .25s ease-out;
-    -o-transition: margin .25s ease-out;
-    transition: margin .25s ease-out;
-}
-#sidebar-wrapper .sidebar-heading {
-    padding: 0.875rem 1.25rem;
-    font-size: 1.2rem;
-}
+    padding-top: 30px;
+    padding-left: 110px;
 
-#page-content-wrapper {
-    min-width: 0;
-    width: 100%;
-}
+  }
+  .character-container {
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+  
+  .character-bg {
+    display: flex; /* Use flexbox layout */
+  }
+  
+  .horizontal-scroll {
+    flex-direction: row; /* Horizontal direction */
+    white-space:  nowrap; /* Prevent wrapping */
+  }
+  
+  /* Optionally, add styles to individual character components if needed */
+  .character {
+    flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+    margin-right: 10px; /* Add spacing between characters */
+  }
+  

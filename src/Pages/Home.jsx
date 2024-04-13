@@ -2,8 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import place1 from '../images/chitharal.jpeg';
-import place2 from '../images/marunthukootai.jpg';
-import place3 from '../images/suchindram.jpg';
+import place2 from '../images/marunthu kottai_1.jpg';
+import place3 from '../images/vattakottai.jpg';
+
 
 function Home() {
   return (
@@ -30,7 +31,7 @@ function Home() {
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={place3} height='150px' width='50px' />
             <Card.Body>
-              <Card.Title style={{ textDecoration: 'none' }}>Suchidram Temple</Card.Title>
+              <Card.Title style={{ textDecoration: 'none' }}>Vattakottai</Card.Title>
             </Card.Body>
           </Card>
         </Link>
