@@ -1,44 +1,59 @@
+import React, { useState } from 'react';
+import './Styles/Login.css';
+import signupImage from '../images/signup.png';
+import {  useParams } from 'react-router-dom';
+import { auth } from "../firebase";
 
-import React from 'react';
-import './Styles/Login.css'; // Import your CSS file
-import signupImage from '../images/signup.png'; // Import your login image
-import { useNavigate } from 'react-router-dom';
-
-function Resetpassword() {
-    const navigate = useNavigate();
-  return (
-    <>
+function ResetPassword() {
     
-    
-    <section className='form-Card' >
-      <div className="login-container">
-        <div className="login-image">
-          <img src={signupImage} height={700} width={700} alt="Login" />
-        </div>
+    const { oobCode } = useParams();
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(false);
 
+    const handleResetPassword = async (e) => {
+        e.preventDefault();
+        try {
+            if (password !== confirmPassword) {
+                throw new Error("Passwords do not match.");
+            }
+            await auth.confirmPasswordReset(oobCode, password);
+            setSuccess(true);
+        } catch (error) {
+            setError(error.message);
+        }
+    };
 
-        <div className="login-form">
-          <h1>RESET PASSWORD</h1>
-          <form style={{marginTop:"50px"}}>
-          <div className="form-group">
-              <label>New Password:</label>
-              <input type="password" placeholder="Enter new password" />
-            </div>
-            <div className="form-group">
-              <label>Confirm Password:</label>
-              <input type="password" placeholder="confirm password" />
-            </div>
-            <div >
-            <button id='btn-submit' type="submit"  onClick={()=>navigate("/login")}>RESET PASSWORD</button>
-            </div>
-          </form>
-          
-         
-        </div>
-      </div>
-    </section>
-    </>
-  );
+    return (
+        <>
+            <section className='form-Card'>
+                <div className="login-container">
+                    <div className="login-image">
+                        <img src={signupImage} height={700} width={700} alt="Login" />
+                    </div>
+                    <div className="login-form">
+                        <h1>RESET PASSWORD</h1>
+                        <form style={{ marginTop: "50px" }}>
+                            <div className="form-group">
+                                <label>New Password:</label>
+                                <input type="password" placeholder="Enter new password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                            </div>
+                            <div className="form-group">
+                                <label>Confirm Password:</label>
+                                <input type="password" placeholder="Confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                            </div>
+                            <div>
+                                <button id='btn-submit' type="submit" onClick={handleResetPassword}>RESET PASSWORD</button>
+                            </div>
+                        </form>
+                        {error && <div className="error-message">{error}</div>}
+                        {success && <div className="success-message">Password successfully reset.</div>}
+                    </div>
+                </div>
+            </section>
+        </>
+    );
 }
 
-export default Resetpassword;
+export default ResetPassword;
