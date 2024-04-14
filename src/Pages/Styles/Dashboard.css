@@ -35,12 +35,15 @@
   }
   .pagestyle {
     background-color: #f7f7f7; /* Change to your preferred shade of grey */
+   
   }
+
   .character-bg{
    
     
     padding-top: 30px;
     padding-left: 110px;
+   padding-bottom: 100px;
 
   }
   .character-container {

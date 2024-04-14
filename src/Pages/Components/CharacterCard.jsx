@@ -13,8 +13,11 @@ function CharacterCard() {
 
   return (
     <div className="character-container">
+      
       <div className='pagestyle' style={{marginLeft:'50px'}}>
+      <h2 style={{paddingLeft:'290px'}}>Conversation Between the characters</h2>
         <div className='character-bg horizontal-scroll'>
+        
           {renderCharacterComponents()}
         </div>
       </div>
