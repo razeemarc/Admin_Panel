@@ -5,9 +5,12 @@ import { db} from '../../firebase';
 import { doc,setDoc } from 'firebase/firestore';
 const Character = ({ conversationNumber }) => {
   const handleSubmit =async (e) => {
+    const documentId = `Conversation${conversationNumber}`;
     e.preventDefault();
    const conversation ={character1,character2};
-   const docRef = doc(db, "conversations", "1");
+
+   const docRef = doc(db, "ChitharalCharacter", documentId);
+   
    await setDoc(docRef, conversation);
    setCharacter1('');
    setCharacter2('');
