@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Character from './Character';
 import '../Styles/Dashboard.css';
+import { useEffect } from 'react';
+import { Card, Button } from 'react-bootstrap';
+import { db } from '../../firebase';
+import { collection, getDocs, query } from 'firebase/firestore';
 
 function CharacterCard() {
   const renderCharacterComponents = () => {
@@ -11,15 +15,82 @@ function CharacterCard() {
     return characterComponents;
   };
 
+  const [students, setStudents] = useState([]);
+  const [isContentVisible, setIsContentVisible] = useState(false);
+
+  const getStudents = async () => {
+    const q = query(collection(db, "ChitharalCharacter"));
+    const querySnapshot = await getDocs(q);
+    let students = [];
+    querySnapshot.forEach((doc) => {
+      students.push({ ...doc.data(), id: doc.id });
+    });
+    setStudents(students);
+  };
+
+  useEffect(() => {
+    getStudents();
+  }, []);
+
+  const handleUpdateButtonClick = () => {
+    setIsContentVisible(true);
+  };
+  const handleUpdateButtonClickfalse = () => {
+    setIsContentVisible(false);
+    window.location.reload(); // Refresh the page
+  };
+
   return (
-    <div className="character-container">
-      
-      <div className='pagestyle' style={{marginLeft:'50px'}}>
-      <h2 style={{paddingLeft:'290px'}}>Conversation Between the characters</h2>
-        <div className='character-bg horizontal-scroll'>
-        
-          {renderCharacterComponents()}
-        </div>
+    <div className="character-container ">
+      <div className='pagestyle' style={{ marginLeft: '50px' }}>
+        {!isContentVisible && (
+          <div>
+            <h2 style={{ paddingLeft: '290px' }}>Conversation Between the characters</h2>
+            <Card className="conversation-display-card">
+              <Card.Body>
+                <Card.Title style={{ display: "flex", justifyContent: "center" }}>Conversations</Card.Title>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Character 1</th>
+                      <th>Character 2</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {students.map((student, index) => (
+                      <React.Fragment key={student.id}>
+                        <tr>
+                          <td>{student.character1}</td>
+                          <td>{student.character2}</td>
+                        </tr>
+                        {index !== students.length - 1 && <tr><td colSpan="2"><hr /></td></tr>}
+                      </React.Fragment>
+                    ))}
+                  </tbody>
+                </table>
+              </Card.Body>
+            </Card>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Button style={{ marginTop: '10px', width: "20%" }} variant="primary" onClick={handleUpdateButtonClick}>
+                Update
+              </Button>
+            </div>
+            <br />
+          </div>
+        )}
+        {isContentVisible && (
+          <div>
+            <h3 style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>Update the Conversations Here</h3>
+            <div className='character-bg horizontal-scroll' >
+              {renderCharacterComponents()}
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Button style={{ marginTop: '10px', width: "20%" }} variant="primary" onClick={handleUpdateButtonClickfalse}>
+                View Changes
+              </Button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
