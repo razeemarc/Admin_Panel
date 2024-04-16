@@ -1,6 +1,8 @@
 import firebase from 'firebase/compat/app'; // Update the import statement
 import { getFirestore } from 'firebase/firestore'; // Update the import statement
 import 'firebase/compat/auth'; // Update the import statement
+import { getStorage, ref  } from 'firebase/storage';
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyB0nxVJjfTqizwzKCzGn-Z0i5KxGkVuliU",
@@ -16,9 +18,7 @@ const app = firebase.initializeApp(firebaseConfig);
 
 export const auth = app.auth();
 export const db = getFirestore(); // Corrected method name
-
+export const imageDb=getStorage();
+export { ref};
+ 
 export default app;
-
-
-
-  

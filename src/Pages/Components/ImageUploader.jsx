@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { imageDb, ref } from '../../firebase'; // Updated import statement
+import { uploadBytes } from 'firebase/storage';
 
 function ImageUploader() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -9,11 +11,22 @@ function ImageUploader() {
   };
 
   const handleUpload = () => {
-    // Logic for uploading the image
-    console.log("Uploading image:", selectedImage);
-    // Reset selected image after upload
-    setSelectedImage(null);
+    if (!selectedImage) {
+      console.error("No image selected.");
+      return;
+    }
+  
+    const storageRef = ref(imageDb, 'Chitharal/' + selectedImage.name);
+    const uploadTask = uploadBytes(storageRef, selectedImage);
+  
+    uploadTask.then((snapshot) => {
+      console.log("Image uploaded successfully:", snapshot);
+      setSelectedImage(null); // Reset selected image after upload
+    }).catch((error) => {
+      console.error("Error uploading image:", error);
+    });
   };
+  
 
   return (
     <div style={{ marginLeft: '199px',marginTop:"40px" }}>
