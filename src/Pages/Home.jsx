@@ -19,7 +19,7 @@ function Home() {
             </Card.Body>
           </Card>
         </Link>
-        <Link to="/marunthukootai" style={{ textDecoration: 'none' }}>
+        <Link to="/marunthukottai" style={{ textDecoration: 'none' }}>
           <Card style={{ width: '18rem', marginRight: '20px' }}>
             <Card.Img variant="top" src={place2} height='150px' width='50px' />
             <Card.Body>
@@ -27,7 +27,7 @@ function Home() {
             </Card.Body>
           </Card>
         </Link>
-        <Link to="/suchindram" style={{ textDecoration: 'none' }}>
+        <Link to="/vattakottai" style={{ textDecoration: 'none' }}>
           <Card style={{ width: '18rem' }}>
             <Card.Img variant="top" src={place3} height='150px' width='50px' />
             <Card.Body>

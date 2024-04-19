@@ -4,7 +4,7 @@ import { db } from '../../firebase';
 import { doc, setDoc } from 'firebase/firestore';
 import '../Styles/Dashboard.css'
 
-const Character = ({ conversationNumber }) => {
+const Character = ({ conversationNumber ,collectionName}) => {
   const [character1, setCharacter1] = useState('');
   const [character2, setCharacter2] = useState('');
   const [isUpdated, setIsUpdated] = useState(false);
@@ -13,7 +13,7 @@ const Character = ({ conversationNumber }) => {
     e.preventDefault();
     const documentId = `Conversation${conversationNumber}`;
     const conversation = { character1, character2 };
-    const docRef = doc(db, "ChitharalCharacter", documentId);
+    const docRef = doc(db, collectionName, documentId);
     await setDoc(docRef, conversation);
     setIsUpdated(true); // Set isUpdated to true when conversation is updated
   };

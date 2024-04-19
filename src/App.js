@@ -1,17 +1,18 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Corrected import
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Login from './Pages/Login';
 import ForgotPassword from './Pages/ForgotPassword';
 import Home from './Pages/Home';
 import ResetPassword from './Pages/ResetPassword';
 import Chitharal from './Pages/chitharal';
-import Marunthukootai from './Pages/marunthukootai';
-import Suchindram from './Pages/suchindram';
+import MarunthuKottai from './Pages/MarunthuKottai';
+import VattaKottai from './Pages/VattaKottai';
+
 function App() {
   return (
     <div>
-      <Router> {/* Wrap your routes with the Router component */}
+      <Router>
         <Routes>
           <Route path="/" element={<Login />} /> 
           <Route path="/login" element={<Login />} /> 
@@ -19,9 +20,8 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/resetpassword" element={<ResetPassword/>} />
           <Route path="/chitharal" element={<Chitharal />} />
-          <Route path="/marunthukootai" element={<Marunthukootai />} />
-          <Route path="/suchindram" element={<Suchindram />} />
-
+          <Route path="/marunthukottai" element={<MarunthuKottai />} />
+         <Route path='/vattakottai' element={<VattaKottai/>}/>
         </Routes>
       </Router>
     </div>

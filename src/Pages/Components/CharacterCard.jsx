@@ -6,11 +6,11 @@ import { Card, Button } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, query } from 'firebase/firestore';
 
-function CharacterCard() {
+function CharacterCard({ collectionName }) {
   const renderCharacterComponents = () => {
     const characterComponents = [];
     for (let i = 1; i <= 3; i++) {
-      characterComponents.push(<Character key={i} conversationNumber={i} />);
+      characterComponents.push(<Character key={i} conversationNumber={i} collectionName={collectionName} />);
     }
     return characterComponents;
   };
@@ -19,7 +19,7 @@ function CharacterCard() {
   const [isContentVisible, setIsContentVisible] = useState(false);
 
   const getStudents = async () => {
-    const q = query(collection(db, "ChitharalCharacter"));
+    const q = query(collection(db, collectionName));
     const querySnapshot = await getDocs(q);
     let students = [];
     querySnapshot.forEach((doc) => {

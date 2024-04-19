@@ -4,14 +4,14 @@ import { Card, Button, Modal } from 'react-bootstrap';
 import { db } from '../../firebase';
 import { collection, getDocs, query, deleteDoc, doc } from 'firebase/firestore';
 
-function Feedback() {
+function Feedback({collectionName}) {
   const [students, setStudents] = useState([]);
   const [isContentVisible, setIsContentVisible] = useState(false);
   const [selectedFeedback, setSelectedFeedback] = useState(null);
   const [showConfirmation, setShowConfirmation] = useState(false);
 
   const getStudents = async () => {
-    const q = query(collection(db, "Feedback"));
+    const q = query(collection(db, collectionName));
     const querySnapshot = await getDocs(q);
     let students = [];
     querySnapshot.forEach((doc) => {

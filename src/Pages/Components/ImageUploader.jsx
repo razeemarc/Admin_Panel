@@ -4,7 +4,7 @@ import { uploadBytes, getDownloadURL } from 'firebase/storage';
 import { Button, Card, Modal } from 'react-bootstrap';
 import { AiOutlineClose } from 'react-icons/ai'; // Import close icon
 
-function ImageUploader() {
+function ImageUploader({collectionName}) {
   const [selectedImage, setSelectedImage] = useState(null);
   const [images, setImages] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -17,7 +17,7 @@ function ImageUploader() {
 
   const fetchAndDisplayImages = async () => {
     try {
-      const storageRef = ref(imageDb, 'Chitharal');
+      const storageRef = ref(imageDb, collectionName);
       const fileList = await listAll(storageRef);
       const imageUrls = await Promise.all(fileList.items.map(async (item) => {
         const url = await getDownloadURL(item);
@@ -41,7 +41,7 @@ function ImageUploader() {
       return;
     }
 
-    const storageRef = ref(imageDb, 'Chitharal/' + selectedImage.name);
+    const storageRef = ref(imageDb, `${collectionName}/` + selectedImage.name);
     const uploadTask = uploadBytes(storageRef, selectedImage);
 
     uploadTask.then((snapshot) => {

@@ -1,5 +1,3 @@
-// Chitharal.js
-
 import React, { useState } from 'react';
 import SideBar from './Components/SideBar';
 import './Styles/Dashboard.css';
@@ -8,7 +6,7 @@ import ImageUploader from './Components/ImageUploader';
 import History from './Components/History';
 import Feedback from './Components/Feedback';
 
-function Chitharal() {
+function VattaKottai() {
   const [selectedOption, setSelectedOption] = useState('Characters');
 
   const handleSidebarItemClick = (option) => {
@@ -17,18 +15,17 @@ function Chitharal() {
 
   return (
     <div className='pagestyle'>
-       <SideBar onSidebarItemClick={handleSidebarItemClick} selectedOption={selectedOption} />
-      <div >
+      <SideBar onSidebarItemClick={handleSidebarItemClick} selectedOption={selectedOption} />
+      <div>
         <div className='character-bg'>
-          {selectedOption === 'Characters' && <CharacterCard  collectionName="ChitharalCharacter" />}
-          {selectedOption === 'Images' && <ImageUploader collectionName="Chitharal" />}
-          {selectedOption === 'Historical Content' && <History collectionName="ChitharalHistory" />}
-          {selectedOption === 'Feedback' && <Feedback collectionName="ChitharalFeedback" />}
-
+          {selectedOption === 'Characters' && <CharacterCard collectionName="VattaKottaiCharacter" />}
+          {selectedOption === 'Images' && <ImageUploader collectionName="VattaKottai" />}
+          {selectedOption === 'Historical Content' && <History collectionName="VattaKottaiHistory"  />}
+          {selectedOption === 'Feedback' && <Feedback collectionName="VattaKottaiFeedback" />}
         </div>
       </div>
     </div>
   );
 }
 
-export default Chitharal;
+export default VattaKottai;
