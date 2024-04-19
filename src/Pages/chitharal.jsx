@@ -17,7 +17,7 @@ function Chitharal() {
 
   return (
     <div className='pagestyle'>
-      <SideBar onSidebarItemClick={handleSidebarItemClick} />
+       <SideBar onSidebarItemClick={handleSidebarItemClick} selectedOption={selectedOption} />
       <div >
         <div className='character-bg'>
           {selectedOption === 'Characters' && <CharacterCard />}

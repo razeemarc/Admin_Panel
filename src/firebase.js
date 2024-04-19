@@ -1,7 +1,7 @@
 import firebase from 'firebase/compat/app'; // Update the import statement
 import { getFirestore } from 'firebase/firestore'; // Update the import statement
 import 'firebase/compat/auth'; // Update the import statement
-import { getStorage, ref  } from 'firebase/storage';
+import { getStorage, ref ,listAll ,deleteObject} from 'firebase/storage';
 
 
 const firebaseConfig = {
@@ -19,6 +19,6 @@ const app = firebase.initializeApp(firebaseConfig);
 export const auth = app.auth();
 export const db = getFirestore(); // Corrected method name
 export const imageDb=getStorage();
-export { ref};
+export { ref,listAll,deleteObject};
  
 export default app;

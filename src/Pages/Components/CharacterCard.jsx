@@ -45,10 +45,9 @@ function CharacterCard() {
       <div className='pagestyle' style={{ marginLeft: '50px' }}>
         {!isContentVisible && (
           <div>
-            <h2 style={{ paddingLeft: '290px' }}>Conversation Between the characters</h2>
+            <h2 style={{ paddingLeft: '351px' }}>Conversation Between the characters</h2>
             <Card className="conversation-display-card">
               <Card.Body>
-                <Card.Title style={{ display: "flex", justifyContent: "center" }}>Conversations</Card.Title>
                 <table>
                   <thead>
                     <tr>
@@ -70,8 +69,8 @@ function CharacterCard() {
                 </table>
               </Card.Body>
             </Card>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Button style={{ marginTop: '10px', width: "20%" }} variant="primary" onClick={handleUpdateButtonClick}>
+            <div >
+              <Button style={{ marginTop: '30px', width: "20%" ,marginLeft:'510px'}} variant="primary" onClick={handleUpdateButtonClick}>
                 Update
               </Button>
             </div>
@@ -80,12 +79,12 @@ function CharacterCard() {
         )}
         {isContentVisible && (
           <div>
-            <h3 style={{ display: 'flex', justifyContent: 'center', marginTop: '30px' }}>Update the Conversations Here</h3>
+            <h3 style={{  marginTop: '30px' ,marginLeft:'421px'}}>Update the Conversations Here</h3>
             <div className='character-bg horizontal-scroll' >
               {renderCharacterComponents()}
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Button style={{ marginTop: '10px', width: "20%" }} variant="primary" onClick={handleUpdateButtonClickfalse}>
+            <div >
+              <Button style={{ marginTop: '10px', width: "20%" ,marginLeft:'510px'}} variant="primary" onClick={handleUpdateButtonClickfalse}>
                 View Changes
               </Button>
             </div>
