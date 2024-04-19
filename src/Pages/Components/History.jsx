@@ -51,9 +51,9 @@ function History({collectionName}) {
               </Card.Body>
             </Card>
             <div >
-              <Button style={{ marginTop: '30px', width: "20%" ,marginLeft:'510px'}} variant="primary" onClick={handleUpdateButtonClick}>
+              <button className='normal-btn' style={{ marginTop: '30px', width: "20%" ,marginLeft:'510px'}} variant="primary" onClick={handleUpdateButtonClick}>
                 Update
-              </Button>
+              </button>
             </div>
             <br />
           </div>
@@ -65,9 +65,9 @@ function History({collectionName}) {
               <HistoryCard collectionName={collectionName} />
             </div>
             <div >
-              <Button style={{ marginTop: '10px', width: "20%",marginLeft:'510px' }} variant="primary" onClick={handleUpdateButtonClickFalse}>
+              <button className='normal-btn' style={{ marginTop: '85px', width: "20%",marginLeft:'510px' }}  onClick={handleUpdateButtonClickFalse}>
                 View Changes
-              </Button>
+              </button>
             </div>
           </div>
         )}

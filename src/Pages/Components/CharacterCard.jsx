@@ -70,9 +70,9 @@ function CharacterCard({ collectionName }) {
               </Card.Body>
             </Card>
             <div >
-              <Button style={{ marginTop: '30px', width: "20%" ,marginLeft:'510px'}} variant="primary" onClick={handleUpdateButtonClick}>
+              <button className='normal-btn' style={{ marginTop: '30px', width: "20%" ,marginLeft:'510px'}}  onClick={handleUpdateButtonClick}>
                 Update
-              </Button>
+              </button>
             </div>
             <br />
           </div>
@@ -84,9 +84,9 @@ function CharacterCard({ collectionName }) {
               {renderCharacterComponents()}
             </div>
             <div >
-              <Button style={{ marginTop: '10px', width: "20%" ,marginLeft:'510px'}} variant="primary" onClick={handleUpdateButtonClickfalse}>
+              <button  className='normal-btn' style={{ marginTop: '10px', width: "20%" ,marginLeft:'510px'}}  onClick={handleUpdateButtonClickfalse}>
                 View Changes
-              </Button>
+              </button>
             </div>
           </div>
         )}

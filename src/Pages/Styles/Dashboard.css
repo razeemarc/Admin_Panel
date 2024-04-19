@@ -1,17 +1,20 @@
 /* styles.css */
-
 :root {
-	--mainColor: #ffffff;
-	--mainColorLight: #548cfc;
-	--secondaryColor: #407bff;
-    --textColor:#000000;
-	--lightBlack: #413d3d;
+	--whitecolor: #ffffff;
+	--mainColor:  #E1A308;
+  --youngMainColor:#e9bf55;
+	--secondaryColor: #6286A0;
+
+  --youngsecondaryColor:#4b7593 ;
+	--textColor: #000000;
 }
+
+
 .sidebar {
     width: 250px; /* Adjust as needed */
     height: 100%; /* This ensures it takes full height of the viewport */
-    background-color: var(--mainColor); /* Example background color */
-    color:var(--textColor); /* Example text color */
+    background-color: var(--secondaryColor); /* Example background color */
+    color:var(--whitecolor); /* Example text color */
     position: fixed; /* Fixed positioning so it stays in place while scrolling */
     top: 0;
     left: 0;
@@ -32,15 +35,16 @@
   
   .sidebar li:hover {
     color: var(--mainColorLight); /* Example hover color */
-    background-color: #cad9f9 ;
+    background-color:var(--youngMainColor) ;
+ 
   }
   .sidebar ul li.selected {
     color: var(--mainColorLight); /* Example hover color */
-    background-color: #cad9f9 ;
+    background-color:var(--mainColor) ;
   }
   .pagestyle {
     background-color: #f7f7f7; /* Change to your preferred shade of grey */
-   
+ 
   }
 
   .character-bg{
@@ -109,3 +113,61 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
+/* Styles.css */
+.place-card {
+  width: 18rem;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.place-card:hover {
+  transform: scale(1.1);
+}
+.normal-btn{
+  border-radius: 20px;
+  background-color: var(--mainColor);
+  border: 2px solid var(--mainColor);
+  color: var(--whitecolor);
+  padding: 5px 0;
+}
+.normal-btn:hover{
+  background-color: var(--youngMainColor);
+  border: 2px solid var(--youngMainColor);
+}
+.second-btn{
+  border-radius: 20px;
+  background-color: var(--secondaryColor);
+  border: 2px solid var(--secondaryColor);
+  color: var(--whitecolor);
+  padding: 5px 0;
+}
+.second-btn:hover{
+  background-color: var(--mainColor);
+  border: 2px solid var(--youngMainColor);
+}
+.second-btn-variant1{
+  border-radius: 20px;
+  background-color: var(--secondaryColor);
+  border: 2px solid var(--secondaryColor);
+  color: var(--whitecolor);
+  padding: 5px 0;
+}
+.second-btn-variant1:hover{
+  background-color: var(--youngsecondaryColor);
+  border: 2px solid var(--youngsecondaryColor);
+}
+.feedback-display-card {
+  background-color: var(--youngsecondaryColor) !important;
+  color: var(--whitecolor) !important;
+  border-radius: 25px !important;
+}
+.danger-btn{
+  border-radius: 20px;
+  background-color: rgb(167, 27, 27);
+  border: 2px solid rgb(167, 27, 27) ;
+  color: #ffffff;
+}
+.danger-btn:hover{
+  background-color: rgb(217, 37, 37);
+  border: 2px solid rgb(217, 37, 37) ;
+}

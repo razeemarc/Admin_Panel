@@ -23,16 +23,25 @@ const HistoryCard = ({ collectionName}) => { // Correctly pass the props
   return (
     <>
       <div className='character-container'>
-        <Card style={{ marginLeft: '300px', width: '390px', marginTop: "20px", border: 'none', borderRadius: '12px' }}>
+        <Card style={{ marginLeft: '300px', width: '390px', marginTop: "20px", border: 'none', borderRadius: '22px' }}>
           <Card.Body>
             <Form onSubmit={handleSubmit}>
-              <Form.Group controlId={`formTextField`}>
-                <Form.Control type="text" placeholder="Enter text" value={history} onChange={(e) => setHistory(e.target.value)} required />
-              </Form.Group>
+            <Form.Group controlId={`formTextField`}>
+  <Form.Control 
+    as="textarea" // Set the input type to textarea
+    rows={3} // Set the number of rows
+    placeholder="Enter text" 
+    value={history} 
+    onChange={(e) => setHistory(e.target.value)} 
+    required 
+    style={{ borderRadius: '12px' }} // Apply border radius
+  />
+</Form.Group>
+
               <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                <Button style={{ marginTop: '10px', width: "100%" }} variant="primary" type="submit">
+                <button className='second-btn-variant1'  style={{ marginTop: '10px', width: "100%" }}  type="submit">
                   Update
-                </Button>
+                </button>
               </div>
             </Form>
           </Card.Body>

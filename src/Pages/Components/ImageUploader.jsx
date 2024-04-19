@@ -86,7 +86,7 @@ function ImageUploader({collectionName}) {
         <input ref={fileInputRef} type="file" onChange={handleImageChange} accept="image/*" style={{ display: 'none' }} />
       </div>
       <div style={{ position: 'fixed', bottom: '20px', left: '60%', transform: 'translateX(-50%)' }}>
-  <Button variant="primary" onClick={openFileDialog} style={{ height: '38px', lineHeight: '1' }}>Upload Image</Button>
+  <button className='normal-btn' style={{padding:" 5px 40px 5px"}} onClick={openFileDialog} >Upload Image</button>
 </div>
 
       
@@ -107,7 +107,7 @@ function ImageUploader({collectionName}) {
       </div>
     )}
     <div style={{ position: 'fixed', bottom: '250px', left: '600px' }}>
-      <Button variant="primary" onClick={handleUpload}>Upload</Button>
+      <button className='second-btn' style={{padding:" 5px 40px 5px"}} onClick={handleUpload}>Upload</button>
     </div>
   </Modal.Body>
 </Modal>

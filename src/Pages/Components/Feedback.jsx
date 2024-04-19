@@ -44,16 +44,31 @@ function Feedback({collectionName}) {
   return (
     <div className="character-container">
       <div className='pagestyle' style={{ marginLeft: '50px' }}>
+       
         {!isContentVisible && (
           <div>
            
-            <Card className="conversation-display-card">
+            <Card className="conversation-display-card" style={{border:'none',backgroundColor:"#f7f7f7"}}>
               <Card.Body>
-                <Card.Title style={{ display: "flex", justifyContent: "center" }}><strong>Feedback</strong></Card.Title>
                 {students.map((student, index) => (
                   <React.Fragment key={student.id}>
-                    <Card>
-                      <Button className="close-button" size="sm" variant='danger' onClick={() => handleCardClose(student.id)} style={{ position: 'absolute', top: 0, right: 0 }}>X</Button>
+                    <Card className='feedback-display-card'>
+                    <Button 
+  className="close-button" 
+  size="sm" 
+  variant='danger' 
+  onClick={() => handleCardClose(student.id)} 
+  style={{ 
+    position: 'absolute', 
+    top: 2, 
+    right: 3,
+    borderRadius: '50%', // Make the button circular
+    width: '30px', // Adjust width to maintain circular shape
+    height: '30px' // Adjust height to maintain circular shape
+  }}
+>
+  X
+</Button>
                       <Card.Body>
                         <Card.Text><strong>User Name:</strong> {student.username}</Card.Text>
                         <Card.Text><strong>Place:</strong> {student.place}</Card.Text>
@@ -75,8 +90,8 @@ function Feedback({collectionName}) {
           </Modal.Header>
           <Modal.Body>Are you sure you want to delete this feedback?</Modal.Body>
           <Modal.Footer>
-            <Button variant="danger" onClick={() => handleDeleteFeedback(selectedFeedback)}>Yes</Button>
-            <Button variant="primary" onClick={() => setShowConfirmation(false)}>No</Button>
+            <button className='danger-btn' style={{padding:'5px 20px'}} onClick={() => handleDeleteFeedback(selectedFeedback)}>Yes</button>
+            <button className='second-btn'style={{padding:'5px 20px'}} onClick={() => setShowConfirmation(false)}>No</button>
           </Modal.Footer>
         </Modal>
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Styles/Login.css';
-import illustration from '../images/forgotpassword.png';
+
 
 import { auth } from "../firebase";
 
@@ -24,11 +24,9 @@ function ForgotPassword() {
         <>
             <section className='form-Card'>
                 <div className="login-container">
-                    <div className="login-image">
-                        <img src={illustration} height={700} width={700} alt="Login" />
-                    </div>
+                    
                     <div className="login-form">
-                        <h1>FORGOT YOUR PASSWORD ?</h1>
+                        <h1>Forgot your password?</h1>
                         <form>
                             <div className="form-group">
                                 <label>Email:</label>

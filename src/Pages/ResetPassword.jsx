@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Styles/Login.css';
+import './Styles/LoginDemo.css';
 import signupImage from '../images/signup.png';
 import {  useParams } from 'react-router-dom';
 import { auth } from "../firebase";
