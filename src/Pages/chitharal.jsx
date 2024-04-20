@@ -18,7 +18,7 @@ function Chitharal() {
   return (
     <div className='pagestyle'>
        <SideBar onSidebarItemClick={handleSidebarItemClick} selectedOption={selectedOption} />
-      <div >
+      
         <div className='character-bg'>
           {selectedOption === 'Characters' && <CharacterCard  collectionName="ChitharalCharacter" />}
           {selectedOption === 'Images' && <ImageUploader collectionName="Chitharal" />}
@@ -26,7 +26,7 @@ function Chitharal() {
           {selectedOption === 'Feedback' && <Feedback collectionName="ChitharalFeedback" />}
 
         </div>
-      </div>
+      
     </div>
   );
 }

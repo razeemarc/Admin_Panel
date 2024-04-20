@@ -44,7 +44,7 @@
   }
   .pagestyle {
     background-color: #f7f7f7; /* Change to your preferred shade of grey */
- 
+   height: 100vh;
   }
 
   .character-bg{

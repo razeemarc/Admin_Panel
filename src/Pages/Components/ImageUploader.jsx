@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { imageDb, ref, listAll, deleteObject } from '../../firebase'; // Updated import statement
 import { uploadBytes, getDownloadURL } from 'firebase/storage';
-import { Button, Card, Modal } from 'react-bootstrap';
+import {  Card, Modal } from 'react-bootstrap';
 import { AiOutlineClose } from 'react-icons/ai'; // Import close icon
 
 function ImageUploader({collectionName}) {
